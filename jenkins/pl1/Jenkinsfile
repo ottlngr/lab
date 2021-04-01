@@ -2,72 +2,71 @@ pipeline {
 	agent any
 	stages {
 	  stage('s1') {
-            parallel {
-                stage('s1.1') {
-                    steps {
-                        sh "sleep 1"
-                    }
-                }
-                stage('s1.2') {
-                    steps {
-                        sh "sleep 2"
-                    }
-                }
-								stage('s1.3') {
-                    steps {
-                        sh "sleep 3"
-                    }
-                }
+      parallel {
+      	stage('s1.1') {
+          steps {
+              sh "sleep 1"
+          }
+        }
+        stage('s1.2') {
+            steps {
+                sh "sleep 2"
             }
         }
+				stage('s1.3') {
+            steps {
+                sh "sleep 3"
+            }
+        }
+      }
     }
 		stage('s2') {
-            parallel {
-                stage('s2.1') {
-                    steps {
-                        sh "sleep 1"
-                    }
-                }
-                stage('s2.2') {
-                    steps {
-                        sh "sleep 2"
-                    }
-                }
-								stage('s2.3') {
-                    steps {
-                        sh "sleep 5"
-                    }
-                }
-								stage('s2.4') {
-                    steps {
-                        sh "sleep 4"
-                    }
-                }
-								stage('s2.5') {
-                    steps {
-                        sh "sleep 10"
-                    }
-                }
-            }
-        }
+      parallel {
+          stage('s2.1') {
+              steps {
+                  sh "sleep 1"
+              }
+          }
+          stage('s2.2') {
+              steps {
+                  sh "sleep 2"
+              }
+          }
+					stage('s2.3') {
+              steps {
+                  sh "sleep 5"
+              }
+          }
+					stage('s2.4') {
+              steps {
+                  sh "sleep 4"
+              }
+          }
+					stage('s2.5') {
+              steps {
+                  sh "sleep 10"
+              }
+          }
+      }
     }
 		stage('s3') {
-            parallel {
-                stage('s3.1') {
-                    steps {
-                        sh "sleep 1"
-                    }
-                }
-                stage('s3.2') {
-                    steps {
-                        sh "sleep 2"
-                    }
-                }
-								stage('s3.3') {
-                    steps {
-                        sh "sleep 3"
-                    }
-                }
-            }
+		  parallel {
+		      stage('s3.1') {
+		          steps {
+		              sh "sleep 1"
+		          }
+		      }
+		      stage('s3.2') {
+		          steps {
+		              sh "sleep 2"
+		          }
+		      }
+					stage('s3.3') {
+		          steps {
+		              sh "sleep 3"
+		          }
+		      }
+		  }
     }
+	}
 }
