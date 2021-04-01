@@ -8,7 +8,7 @@ pipeline {
               sh "sleep 1"
           }
         }
-        stage('s1.2') {
+        stage('create_temp_tables_to_store_recent_data') {
             steps {
                 sh "sleep 2"
             }
@@ -32,7 +32,7 @@ pipeline {
                   sh "sleep 2"
               }
           }
-					stage('s2.3') {
+					stage('process_new_raw_data') {
               steps {
                   sh "sleep 5"
               }
@@ -51,7 +51,7 @@ pipeline {
     }
 		stage('s3') {
 		  parallel {
-		      stage('s3.1') {
+		      stage('drop_temp_tables_and_free_up_disk_space') {
 		          steps {
 		              sh "sleep 1"
 		          }
